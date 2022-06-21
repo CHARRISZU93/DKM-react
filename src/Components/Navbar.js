@@ -22,7 +22,7 @@ const Navbar = () => {
                 <a href="soporte.html">SOPORTE</a>
             </li>
             <li>
-                {Cartwidget}
+                <Cartwidget/>
             </li>
         </ul>
     )

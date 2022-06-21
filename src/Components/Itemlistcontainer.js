@@ -1,9 +1,9 @@
 import React from "react";
 import '../Components/body.css'
 
-const Itemlistcntr = () => {
+const Itemlistcntr = ({Saludo}) => {
     return (
-        <h1>A DIFFERENT KIND OF MARKETING</h1>
+        <h1>{Saludo}</h1>
     )
 }
 

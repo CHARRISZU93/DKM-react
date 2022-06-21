@@ -5,10 +5,9 @@ import './App.css';
 
 const App = () => {
   return (
-    <NavBar>
-    </NavBar>,
     <>
-    {Itemlistcntr}
+    <NavBar/>
+    <Itemlistcntr Saludo="A Different Kind Of MKT" />
     </>
     )
 }

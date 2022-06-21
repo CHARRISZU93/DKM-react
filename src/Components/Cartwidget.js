@@ -1,5 +1,5 @@
 import React from "react";
-import Cart from '@nichoth/shopping-cart'
+import Cart from '../Media/carticon.png'
 import '../Components/Navbar.css'
 
 const Cartwidget = () => {
