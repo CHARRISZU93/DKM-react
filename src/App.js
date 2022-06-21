@@ -7,7 +7,7 @@ const App = () => {
   return (
     <>
     <NavBar/>
-    <Itemlistcntr Saludo="A Different Kind Of MKT" />
+    <Itemlistcntr Saludo="Bienvenido A Different Kind Of MKT" />
     </>
     )
 }
