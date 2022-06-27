@@ -5,6 +5,7 @@ import '../Components/Navbar.css'
 
 const Navbar = () => {
     return (
+        <nav>
         <ul>
             <li>
                 <a href="nosotros.html">NOSOTROS</a>
@@ -25,6 +26,7 @@ const Navbar = () => {
                 <Cartwidget/>
             </li>
         </ul>
+        </nav>
     )
 }
 
