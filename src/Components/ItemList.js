@@ -10,27 +10,27 @@ const Promesa = new Promise((res, rej) => {
     res(Service)
 });
 
-const Listado = () =>{
+const Listado = () => {
 
     const [Servicios, SetServicios] = useState([]);
 
-    useEffect(()=>{
-        Promesa.then((data)=>{
+    useEffect(() => {
+        Promesa.then((data) => {
             SetServicios(data)
-        }).catch(()=>{
+        }).catch(() => {
             console.log("No hay disponibilidad")
         })
-    },[]);
+    }, []);
 
-    return(
+    return (
         <>
-        {Servicios.map((Servicio)=> 
-            <div>
-                <h1 class="logoservicio">{Servicio.logo}</h1>
-                <p>Plan: {Servicio.name}</p>
-                <p>Precio: USD {Servicio.price}</p>
-                <p>Cuentas disponibles por plan: {Servicio.available}</p>
-            </div>
+            {Servicios.map((Servicio) =>
+                <div>
+                    <h1 class="logoservicio">{Servicio.logo}</h1>
+                    <p>Plan: {Servicio.name}</p>
+                    <p>Precio: USD {Servicio.price}</p>
+                    <p>Cuentas disponibles por plan: {Servicio.available}</p>
+                </div>
             )}
         </>
     )

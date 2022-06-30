@@ -3,12 +3,12 @@ import Itemcount from "./Itemcount";
 import Listado from "./ItemList";
 import '../Components/body.css';
 
-const Itemlistcntr = ({Saludo}) => {
+const Itemlistcntr = ({ Saludo }) => {
     return (
         <>
-        <h1>{Saludo}</h1>
-        <Listado/>
-        <Itemcount Stock={10}/>
+            <h1>{Saludo}</h1>
+            <Listado />
+            <Itemcount Stock={10} />
         </>
     )
 }

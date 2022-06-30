@@ -6,10 +6,10 @@ import './App.css';
 const App = () => {
   return (
     <>
-    <NavBar/>
-    <Itemlistcntr Saludo="Selecciona tu plan DKM ideal para ti" />
+      <NavBar />
+      <Itemlistcntr Saludo="Selecciona tu plan DKM ideal para ti" />
     </>
-    )
+  )
 }
 
 export default App;
