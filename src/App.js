@@ -7,7 +7,7 @@ const App = () => {
   return (
     <>
     <NavBar/>
-    <Itemlistcntr Saludo="Bienvenido A Different Kind Of MKT" />
+    <Itemlistcntr Saludo="Selecciona tu plan DKM ideal para ti" />
     </>
     )
 }
