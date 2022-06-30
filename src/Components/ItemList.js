@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
 import Service from "./Item";
-import { PacmanLoader } from "react-spinners";
+import { SpinnerDotted } from 'spinners-react';
 import "../Components/body.css"
 
 const Promesa = new Promise((res, rej) => {
     setTimeout(() => {
-        <PacmanLoader />
-    }, 4000);
+        <SpinnerDotted />
+    }, 2000);
     res(Service)
+    console.log("ping")
 });
 
 const Listado = () => {
