@@ -13,3 +13,14 @@ p {
     color: #ffec38;
     font-size: 60px;
 }
+
+.descripcion{
+    font-size: 20px;
+    color: black;
+    font-family: FUENTE2;
+    display: flex;
+    position: relative;
+    justify-content: space-evenly;
+    padding: 60px;
+    text-align: justify;
+}
