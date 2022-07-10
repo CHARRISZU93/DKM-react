@@ -1,0 +1,53 @@
+@font-face {
+    font-family: FUENTE1;
+    src: url(../Media/LeagueGothic-Regular.otf);
+}
+
+@font-face {
+    font-family: FUENTE2;
+    font-style: normal;
+    src: url(../Media/RobotoCondensed-Light.ttf);
+}
+
+.campo{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.campodescrp {
+    font-size: 50px;
+    color: black;
+    font-family: FUENTE1;
+    border-image: round;
+    position: relative;
+    justify-content: space-evenly;
+    margin-top: 20px;
+    display: flex;
+}
+
+.campologoservicio {
+    color: #ffec38;
+    font-size: 400px;
+    text-align: center;
+}
+
+.campodescripcion {
+    font-size: 19px;
+    color: black;
+    font-family: FUENTE2;
+    display: flex;
+    position: relative;
+    justify-content: space-evenly;
+    padding: 60px;
+    text-align: justify;
+}
+
+button {
+    font-size: 15px;
+    color: black;
+    font-family: FUENTE1;
+    border-image: round;
+    position: relative;
+    justify-content: space-evenly;
+    display: flex;
+}

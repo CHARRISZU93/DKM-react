@@ -1,0 +1,55 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+@font-face {
+    font-family: FUENTE1;
+    src: url(../Media/LeagueGothic-Regular.otf); }
+  
+  @font-face {
+    font-family: FUENTE2;
+    font-style: normal;
+    src: url(../Media/RobotoCondensed-Light.ttf); }
+
+#lista{
+    display: flex;
+    justify-content: center;
+}
+
+.articulo{
+    color: black;
+    padding: 40px;
+    position: relative;
+    justify-content: space-evenly;
+    display:inline-block;
+    margin: auto 0
+}
+
+.btndetalles{
+    font-size: 20px;
+    font-family: FUENTE2;
+    position: relative;
+    justify-content: space-evenly;
+    display: flex;
+    border: 0;
+    padding: 10px;
+    text-decoration: underline;
+}
+
+p {
+    font-size: 25px;
+    color: black;
+    font-family: FUENTE1;
+    border-image: round;
+    position: relative;
+    justify-content: space-evenly;
+    margin-top: 20px;
+    display: flex;
+}
+
+.logoservicio {
+    color: #ffec38;
+    font-size: 80px;
+    text-align: center;
+}

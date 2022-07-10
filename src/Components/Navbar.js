@@ -2,28 +2,31 @@ import React from "react"
 import logo from '../Media/a-different-kind-of-mkt.png'
 import Cartwidget from "../Components/Cartwidget"
 import '../Components/Navbar.css'
+import { Link } from "react-router-dom"
 
 const Navbar = () => {
     return (
         <nav>
             <ul>
                 <li>
-                    <a href="nosotros.html">NOSOTROS</a>
+                    <Link to="">NOSOTROS</Link>
                 </li>
                 <li>
-                    <a href="servicios.html">SERVICIOS</a>
+                    <Link to="">SERVICIOS</Link>
                 </li>
                 <li>
-                    <a href="index.html"><img src={logo} alt="DKM"></img></a>
+                    <Link to="/"><img src={logo} alt="DKM"></img></Link>
                 </li>
                 <li>
-                    <a href="pricing.html">PRICING</a>
+                    <Link to="pricing">PRICING</Link>
                 </li>
                 <li>
-                    <a href="soporte.html">SOPORTE</a>
+                    <Link to="">SOPORTE</Link>
                 </li>
                 <li>
+                    <Link to="cart">
                     <Cartwidget />
+                    </Link>
                 </li>
             </ul>
         </nav>

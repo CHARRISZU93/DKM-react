@@ -4,7 +4,7 @@ import '../Components/Navbar.css'
 
 const Cartwidget = () => {
     return (
-        <a href="carrito.html"><MdAddShoppingCart id="Cartwidget" /></a>
+        <MdAddShoppingCart id="Cartwidget" />
     )
 }
 

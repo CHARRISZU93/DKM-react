@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import Service from "./Item";
 import { SpinnerDotted } from 'spinners-react';
-import "../Components/body.css"
+import '../Components/Itemlistcontainer.css';
+import { Link } from "react-router-dom"
 
 const Promesa = new Promise((res, rej) => {
     setTimeout(() => {
@@ -25,14 +26,19 @@ const Listado = () => {
 
     return (
         <>
+        <div id="lista">
             {Servicios.map((Servicio) =>
-                <div>
-                    <h1 class="logoservicio">{Servicio.logo}</h1>
+                <div class="articulo">
+                    <Link to={Servicio.route}><h1 class="logoservicio">{Servicio.logo}</h1></Link>
                     <p>Plan: {Servicio.name}</p>
                     <p>Precio: USD {Servicio.price}</p>
                     <p>Cuentas disponibles por plan: {Servicio.available}</p>
+                    <div class="btndetalles">
+                    <Link to={Servicio.route}><p>MAS DETALLES</p></Link>
+                    </div>
                 </div>
             )}
+        </div>
         </>
     )
 }

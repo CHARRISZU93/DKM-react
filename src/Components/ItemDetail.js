@@ -1,40 +1,11 @@
-import { useEffect, useState } from "react";
-import Service from "./Item";
-import { SpinnerDotted } from 'spinners-react';
-import "../Components/body.css"
+import { MdDevices } from "react-icons/md"
+import { MdModeComment } from "react-icons/md"
+import { MdAccountCircle } from "react-icons/md"
 
-const Promesa = new Promise((res, rej) => {
-    setTimeout(() => {
-        <SpinnerDotted />
-    }, 2000);
-    res(Service)
-    console.log("ping")
-});
+const ServiceDet = [
+    { name: 'Basic', id: 0, price: 400, available: 10, logo: <MdAccountCircle />, route:"/pricing/Basic",descrp:"ADMINISTRACIÓN DE PERFILES EN REDES SOCIALES - 1 POSTEO SEMANAL EN HORARIOS DE ALTO TRÁFICO - RESPUESTA A COMENTARIOS E INTERACIONES EN INBOX, POSTS Y REVIEWS - SEGUIMIENTO A TRÁFICO, SEGUIDORES E INTERACCIONES POR REDES SOCIALES" },
+    { name: 'Social', id: 1, price: 500, available: 10, logo: <MdModeComment />, route:"/pricing/Social", descrp:"ADMINISTRACIÓN DE PERFILES EN REDES SOCIALES - 3 POSTEOS SEMANALES EN HORARIOS DE ALTO TRÁFICO - RESPUESTA A COMENTARIOS E INTERACIONES EN DM, POSTS Y REVIEWS - SEGUIMIENTO A TRÁFICO, SEGUIDORES E INTERACCIONES POR REDES SOCIALES - ADMINISTRACIÓN DE CONTENIDO AUDIOVISUAL PARA POSTEO EN REDES - REDES INCLUÍDAS: PLAN BASIC + INSTAGRAM, (NO INCLUYE STORIES) - REPORTE TRIMESTRAL DE COMPORTAMIENTO DE REDES SOCIALES" },
+    { name: 'Dev', id: 2, price: 800, available: 10, logo: <MdDevices />, route:"/pricing/Dev", descrp: "ADMINISTRACIÓN DE PERFILES EN REDES SOCIALES - 4 POSTEOS SEMANALES EN HORARIOS DE ALTO TRÁFICO - RESPUESTA A COMENTARIOS E INTERACIONES EN INBOX, POSTS Y REVIEWS - SEGUIMIENTO A TRÁFICO, SEGUIDORES E INTERACCIONES POR REDES SOCIALES ADMINISTRACIÓN DE CONTENIDO AUDIOVISUAL PARA POSTEO EN REDES - REDES INCLUÍDAS: PLAN SOCIAL + TWITTER + 4 STORIES DE INSTAGRAM - SEMANALES REPORTE MENSUAL DE COMPORTAMIENTO DE REDES SOCIALES- ANÁLISIS + PUESTA EN MARCHA + DINAMIZACIÓN + MANTENIMIENTO PERSONALIZADO - CREACION PROPUESTA DISEÑO DE PAGINA WEB - DESARROLLO Y SUBIDA DE PAGINA WEB (1-5 SECCIONES) - SEO BASICO - UN (1) MANTENIMIENTO MENSUAL POR EL PRIMER AÑO CON DKM"},
+]
 
-const DetalleListado = () => {
-
-    const [Servicios, SetServicios] = useState([]);
-
-    useEffect(() => {
-        Promesa.then((data) => {
-            SetServicios(data)
-        }).catch(() => {
-            console.log("Error 444")
-        })
-    }, []);
-
-    return (
-        <>
-            {Servicios.map((Servicio) =>
-                <div>
-                    <h1 class="logoservicio">{Servicio.logo}</h1>
-                    <p>Plan: {Servicio.name}</p>
-                    <p>Precio: USD {Servicio.price}</p>
-                    <p class="descripcion">Incluye: {Servicio.descrp}</p>
-                </div>
-            )}
-        </>
-    )
-}
-
-export default DetalleListado 
+export default ServiceDet

@@ -1,12 +1,12 @@
 import React from "react";
 import Itemcount from "./Itemcount";
 import Listado from "./ItemList";
-import '../Components/body.css';
+import '../Components/Itemlistcontainer.css';
 
 const Itemlistcntr = ({ Saludo }) => {
     return (
         <>
-            <h1>{Saludo}</h1>
+            <p>{Saludo}</p>
             <Listado />
             <Itemcount Stock={10} />
         </>
