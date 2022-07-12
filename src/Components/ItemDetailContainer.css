@@ -42,12 +42,3 @@
     text-align: justify;
 }
 
-button {
-    font-size: 15px;
-    color: black;
-    font-family: FUENTE1;
-    border-image: round;
-    position: relative;
-    justify-content: space-evenly;
-    display: flex;
-}

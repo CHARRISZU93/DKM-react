@@ -2,8 +2,9 @@ import { useEffect, useState } from "react";
 import ServiceDet from "./ItemDetail";
 import { SpinnerDotted } from 'spinners-react';
 import "../Components/Itemlistcontainer"
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import '../Components/ItemDetailContainer.css'
+import Itemcount from "./Itemcount";
 
 const Promesa = new Promise((res, rej) => {
     setTimeout(() => {
@@ -18,6 +19,13 @@ const ItemDetailcntr = () => {
     const { PricingItem } = useParams()
 
     const [ServiciosDet, SetServiciosDet] = useState([]);
+
+    const [Pagar, SetPagar] = useState(false)
+
+    const onAdd = (Counter) => {
+        SetPagar(true);
+        console.log(Counter)
+    }
 
     useEffect(() => {
         Promesa.then((data) => {
@@ -35,6 +43,7 @@ const ItemDetailcntr = () => {
     return (
         <>
             {ServiciosDet.map((ServicioDet) =>
+                <>
                 <div class="campo">
                     <div>
                     <h1 class="campologoservicio">{ServicioDet.logo}</h1>
@@ -45,6 +54,15 @@ const ItemDetailcntr = () => {
                     <p class="campodescripcion">Incluye: {ServicioDet.descrp}</p>
                     </div>
                 </div>
+                <div className="cuentas">
+                    {!Pagar
+                        ? <Itemcount initial={1} stock={10} onAdd={onAdd}/>
+                        : <Link to="/cart">
+                        <button className="btncambio">Ir a Pagar</button>
+                        </Link>
+                    }
+                </div>
+                </>
             )}
         </>
     )

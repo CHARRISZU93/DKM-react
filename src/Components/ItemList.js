@@ -28,12 +28,12 @@ const Listado = () => {
         <>
         <div id="lista">
             {Servicios.map((Servicio) =>
-                <div class="articulo">
-                    <Link to={Servicio.route}><h1 class="logoservicio">{Servicio.logo}</h1></Link>
+                <div className="articulo">
+                    <Link to={Servicio.route}><h1 className="logoservicio">{Servicio.logo}</h1></Link>
                     <p>Plan: {Servicio.name}</p>
                     <p>Precio: USD {Servicio.price}</p>
                     <p>Cuentas disponibles por plan: {Servicio.available}</p>
-                    <div class="btndetalles">
+                    <div className="btndetalles">
                     <Link to={Servicio.route}><p>MAS DETALLES</p></Link>
                     </div>
                 </div>

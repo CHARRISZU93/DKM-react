@@ -33,16 +33,12 @@
     font-size: 40px;
     font-family: FUENTE1;
     justify-content: space-evenly;
-    display: inline-block;
-    border: 0;
+    display: flex;
+    border: 50px;
     padding: 5px;
 }
 
 .counter{
     display: block;
     justify-content: space-evenly;
-}
-
-p{
-    font-size: 40px;
 }

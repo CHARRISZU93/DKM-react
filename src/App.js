@@ -17,7 +17,7 @@ const App = () => {
         <Routes>
           <Route path='/pricing' element={<Itemlistcntr Saludo="Selecciona tu plan DKM ideal para ti" />}></Route>
           <Route path='/Pricing/:PricingItem' element={<ItemDetailcntr/>}></Route>
-          <Route path='/carrito' element={<Cart/>}></Route>
+          <Route path='/cart' element={<Cart/>}></Route>
         </Routes>
       </BrowserRouter>
   )
