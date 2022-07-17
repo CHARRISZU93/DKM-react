@@ -1,10 +1,12 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import ServiceDet from "./ItemDetail";
 import { SpinnerDotted } from 'spinners-react';
 import "../Components/Itemlistcontainer"
 import { useParams, Link } from "react-router-dom";
 import '../Components/ItemDetailContainer.css'
 import Itemcount from "./Itemcount";
+import { contexto } from '../Context/CartContext'
+
 
 const Promesa = new Promise((res, rej) => {
     setTimeout(() => {
@@ -22,9 +24,11 @@ const ItemDetailcntr = () => {
 
     const [Pagar, SetPagar] = useState(false)
 
+    const {addProduct} = useContext(contexto) 
+
     const onAdd = (Counter) => {
         SetPagar(true);
-        console.log(Counter)
+        addProduct(ServiciosDet, Counter)
     }
 
     useEffect(() => {
