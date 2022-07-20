@@ -15,7 +15,7 @@ const Navbar = () => {
                     <Link to="">SERVICIOS</Link>
                 </li>
                 <li>
-                    <Link to="/"><img src={logo} alt="DKM"></img></Link>
+                    <Link to="home"><img src={logo} alt="DKM"></img></Link>
                 </li>
                 <li>
                     <Link to="pricing">PRICING</Link>
@@ -24,9 +24,7 @@ const Navbar = () => {
                     <Link to="">SOPORTE</Link>
                 </li>
                 <li>
-                    <Link to="cart">
                     <Cartwidget />
-                    </Link>
                 </li>
             </ul>
         </nav>

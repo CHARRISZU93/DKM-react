@@ -8,7 +8,13 @@ const CustomProvider = ({children}) => {
     const [ServiciosDet, SetServiciosDet] = useState([]);
 
     const addProduct = (ServiciosDet, Counter) => {
-        console.log(ServiciosDet, Counter)
+        return ServiciosDet.map((ServicioDet) => {
+            return {
+                ...ServicioDet,
+                count: Counter
+            }
+        }   
+        )
     }
 
     const deleteProduct = (id) => {
@@ -19,10 +25,10 @@ const CustomProvider = ({children}) => {
         return ServiciosDet.some(ServiciosDet => ServiciosDet.id !== id)
     };
 
-    const clear = (id) => {
-        SetServiciosDet([]);
+    const clear = () => {
+        SetServiciosDet([])
     }
-
+     
     return(
         <Provider value={{addProduct, deleteProduct, isInCart, clear}}>
             {children}
