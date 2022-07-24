@@ -8,13 +8,14 @@ const CustomProvider = ({children}) => {
     const [ServiciosDet, SetServiciosDet] = useState([]);
 
     const addProduct = (ServiciosDet, Counter) => {
-        return ServiciosDet.map((ServicioDet) => {
-            return {
-                ...ServicioDet,
-                count: Counter
-            }
-        }   
-        )
+        if(isInCart(ServiciosDet.id)){
+            const newCart = [...ServiciosDet]
+            const seleccion = newCart.find(item => item.id === ServiciosDet.id)
+            seleccion.Counter += Counter
+            SetServiciosDet(newCart)
+        } else {
+            SetServiciosDet([...ServiciosDet, {...ServiciosDet, Counter}])
+        }
     }
 
     const deleteProduct = (id) => {
