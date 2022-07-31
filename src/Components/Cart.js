@@ -6,7 +6,7 @@ import { doc, addDoc, collection, serverTimestamp, updateDoc } from "firebase/fi
 
 const Cart = () => {
 
-    const { ServiciosDet, addProduct, deleteProduct, clear, getQtyServicios} = useContext(contexto)
+    const { Service, addProduct, deleteProduct, clear, getQtyServicios} = useContext(contexto)
     const { idVenta, SetIdVenta } = useState("")
 
     const DatosComprador = () => {
@@ -47,14 +47,14 @@ const Cart = () => {
 
     return (
         <>
-            {ServiciosDet.lenght === 0
+            {Service.lenght === 0
                 ? <h1>No hay productos en el carrito</h1>
                 : <>
-                {ServiciosDet.map(ServiciosDet => (
-                    <h1 key={ServiciosDet.id}> {ServiciosDet.name} </h1>)
+                {Service.map(Service => (
+                    <h1 key={Service.id}> {Service.name} </h1>)
                 )}
                 <button onClick={() => clear()}>Vaciar carrito</button>
-                <button onClick={() => deleteProduct(ServiciosDet.id)}>Eliminar producto</button>
+                <button onClick={() => deleteProduct(Service.id)}>Eliminar producto</button>
                 <button onClick={() => FinalizarCompra()}>Finalizar compra</button>
                 </>
 }           

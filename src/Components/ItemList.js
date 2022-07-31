@@ -47,12 +47,12 @@ const Listado = () => {
         <div id="lista">
             {Servicios.map((Servicio) =>
                 <div className="articulo">
-                    <Link to={Servicio.route}><h1 className="logoservicio">{Servicio.logo}</h1></Link>
-                    <p>Plan: {Servicio.name}</p>
-                    <p>Precio: USD {Servicio.price}</p>
-                    <p>Cuentas disponibles por plan: {Servicio.available}</p>
+                    <Link key={Servicio.id} to={Servicio.route}><h1 className="logoservicio">{Servicio.logo}</h1></Link>
+                    <p key={Servicio.id}>Plan: {Servicio.name}</p>
+                    <p key={Servicio.id}>Precio: USD {Servicio.price}</p>
+                    <p key={Servicio.id}>Cuentas disponibles por plan: {Servicio.available}</p>
                     <div className="btndetalles">
-                    <Link to={Servicio.route}><p>MAS DETALLES</p></Link>
+                    <Link key={Servicio.id} to={Servicio.route}><p>MAS DETALLES</p></Link>
                     </div>
                 </div>
             )}

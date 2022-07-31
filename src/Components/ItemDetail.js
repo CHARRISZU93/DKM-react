@@ -1,11 +1,90 @@
-import { MdDevices } from "react-icons/md"
-import { MdModeComment } from "react-icons/md"
-import { MdAccountCircle } from "react-icons/md"
+import { useEffect, useContext, useState } from "react";
+// import { SpinnerDotted } from 'spinners-react';
+import Service from "./Item";
+import { useParams, Link } from "react-router-dom";
+import '../Components/ItemDetailContainer.css'
+import Itemcount from "./Itemcount";
+import { contexto } from '../Context/CartContext'
+import { db } from "./Firebase";
+import { getDoc, collection, doc } from "firebase/firestore";
 
-const ServiceDet = [
-    { name: 'Basic', id: 0, price: 400, available: 10, logo: <MdAccountCircle />, route:"/pricing/Basic",descrp:"ADMINISTRACIÓN DE PERFILES EN REDES SOCIALES - 1 POSTEO SEMANAL EN HORARIOS DE ALTO TRÁFICO - RESPUESTA A COMENTARIOS E INTERACIONES EN INBOX, POSTS Y REVIEWS - SEGUIMIENTO A TRÁFICO, SEGUIDORES E INTERACCIONES POR REDES SOCIALES" },
-    { name: 'Social', id: 1, price: 500, available: 10, logo: <MdModeComment />, route:"/pricing/Social", descrp:"ADMINISTRACIÓN DE PERFILES EN REDES SOCIALES - 3 POSTEOS SEMANALES EN HORARIOS DE ALTO TRÁFICO - RESPUESTA A COMENTARIOS E INTERACIONES EN DM, POSTS Y REVIEWS - SEGUIMIENTO A TRÁFICO, SEGUIDORES E INTERACCIONES POR REDES SOCIALES - ADMINISTRACIÓN DE CONTENIDO AUDIOVISUAL PARA POSTEO EN REDES - REDES INCLUÍDAS: PLAN BASIC + INSTAGRAM, (NO INCLUYE STORIES) - REPORTE TRIMESTRAL DE COMPORTAMIENTO DE REDES SOCIALES" },
-    { name: 'Dev', id: 2, price: 800, available: 10, logo: <MdDevices />, route:"/pricing/Dev", descrp: "ADMINISTRACIÓN DE PERFILES EN REDES SOCIALES - 4 POSTEOS SEMANALES EN HORARIOS DE ALTO TRÁFICO - RESPUESTA A COMENTARIOS E INTERACIONES EN INBOX, POSTS Y REVIEWS - SEGUIMIENTO A TRÁFICO, SEGUIDORES E INTERACCIONES POR REDES SOCIALES ADMINISTRACIÓN DE CONTENIDO AUDIOVISUAL PARA POSTEO EN REDES - REDES INCLUÍDAS: PLAN SOCIAL + TWITTER + 4 STORIES DE INSTAGRAM - SEMANALES REPORTE MENSUAL DE COMPORTAMIENTO DE REDES SOCIALES- ANÁLISIS + PUESTA EN MARCHA + DINAMIZACIÓN + MANTENIMIENTO PERSONALIZADO - CREACION PROPUESTA DISEÑO DE PAGINA WEB - DESARROLLO Y SUBIDA DE PAGINA WEB (1-5 SECCIONES) - SEO BASICO - UN (1) MANTENIMIENTO MENSUAL POR EL PRIMER AÑO CON DKM"},
-]
 
-export default ServiceDet
+/*const Promesa = new Promise((res, rej) => {
+    setTimeout(() => {
+        <SpinnerDotted />
+    }, 2000);
+    res(ServiceDet)
+    console.log("ping")
+})*/
+
+const ItemDetail = () => {
+
+    const { PricingItem } = useParams()
+
+    const [Servicio, SetServicio] = useState([]);
+
+    const [Pagar, SetPagar] = useState(false)
+
+    const { addProduct } = useContext(contexto)
+
+    const onAdd = (Service,Counter) => {
+        SetPagar(true);
+        addProduct(Service, Counter)
+    }
+
+    useEffect(() => {
+        const serviceCollection = collection(db, "SERVICIOS");
+        const detalles = doc(serviceCollection, PricingItem);
+        getDoc(detalles).then(result => {
+            const detalle = {
+                id: result.id,
+                ...result.data(),
+            };
+            SetServicio(detalle)
+        }).catch(error => {
+            console.log("Error 444")
+        }
+        )
+    }, [PricingItem])
+
+
+    /*Promesa.then((data) => {
+        SetService(data.filter((ServicioDet) => { 
+            console.log(ServicioDet)
+            console.log(PricingItem)
+            return ServicioDet.name === PricingItem
+
+        }))
+    }).catch(() => {
+        console.log("Error 444")
+    })
+}, [PricingItem]); */
+
+return (
+    <>
+    <div id="detalle">
+        {Servicio.map((Service) =>
+    <div class="campo">
+        <h1 class="campologoservicio">{Service.logo}</h1>
+        <p class="campodescrp">Plan {Service.name}</p>
+        <p class="campodescrp">Precio Desde USD {Service.price}</p>
+        <p class="campodescripcion">Incluye: {Service.descrp}</p>
+        </div>
+        )}
+    <div className="cuentas">
+        {!Pagar
+            ? <Itemcount initial={1} stock={10} onAdd={onAdd}/>
+            : <Link to="/cart">
+            <button className="btncambio">Ir a Pagar</button>
+            </Link>
+        }
+    </div>
+    </div>
+    </>
+)
+
+
+
+}
+
+export default ItemDetail;
