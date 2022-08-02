@@ -5,7 +5,7 @@ const ItemDetailcntr = () => {
 
     return (
         <>
-        {ItemDetail}
+        <ItemDetail />
         </>
 )}
 

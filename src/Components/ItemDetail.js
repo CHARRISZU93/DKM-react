@@ -27,7 +27,7 @@ const ItemDetail = () => {
 
     const { addProduct } = useContext(contexto)
 
-    const onAdd = (Service,Counter) => {
+    const onAdd = (Service, Counter) => {
         SetPagar(true);
         addProduct(Service, Counter)
     }
@@ -36,10 +36,12 @@ const ItemDetail = () => {
         const serviceCollection = collection(db, "SERVICIOS");
         const detalles = doc(serviceCollection, PricingItem);
         getDoc(detalles).then(result => {
+            const data = result.data()
             const detalle = {
                 id: result.id,
                 ...result.data(),
             };
+            console.log(detalle)
             SetServicio(detalle)
         }).catch(error => {
             console.log("Error 444")
@@ -60,28 +62,26 @@ const ItemDetail = () => {
     })
 }, [PricingItem]); */
 
-return (
-    <>
-    <div id="detalle">
-        {Servicio.map((Service) =>
-    <div class="campo">
-        <h1 class="campologoservicio">{Service.logo}</h1>
-        <p class="campodescrp">Plan {Service.name}</p>
-        <p class="campodescrp">Precio Desde USD {Service.price}</p>
-        <p class="campodescripcion">Incluye: {Service.descrp}</p>
-        </div>
-        )}
-    <div className="cuentas">
-        {!Pagar
-            ? <Itemcount initial={1} stock={10} onAdd={onAdd}/>
-            : <Link to="/cart">
-            <button className="btncambio">Ir a Pagar</button>
-            </Link>
-        }
-    </div>
-    </div>
-    </>
-)
+    return (
+        <>
+            <div id="detalle">
+                    <div class="campo">
+                        <h1 class="campologoservicio">{Servicio.logo}</h1>
+                        <p class="campodescrp">Plan {Servicio.name}</p>
+                        <p class="campodescrp">Precio Desde USD {Servicio.price}</p>
+                        <p class="campodescripcion">Incluye: {Servicio.descrp}</p>
+                    </div>
+                <div className="cuentas">
+                    {!Pagar
+                        ? <Itemcount initial={1} stock={10} onAdd={onAdd} />
+                        : <Link to="/cart">
+                            <button className="btncambio">Ir a Pagar</button>
+                        </Link>
+                    }
+                </div>
+            </div>
+        </>
+    )
 
 
 

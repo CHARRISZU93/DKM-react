@@ -47,7 +47,8 @@ const Cart = () => {
 
     return (
         <>
-            {Service.lenght === 0
+        {console.log(Service)}
+            {!Service || Service.lenght === 0
                 ? <h1>No hay productos en el carrito</h1>
                 : <>
                 {Service.map(Service => (

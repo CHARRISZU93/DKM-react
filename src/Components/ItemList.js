@@ -45,14 +45,14 @@ const Listado = () => {
     return (
         <>
         <div id="lista">
-            {Servicios.map((Servicio) =>
-                <div className="articulo">
-                    <Link key={Servicio.id} to={Servicio.route}><h1 className="logoservicio">{Servicio.logo}</h1></Link>
-                    <p key={Servicio.id}>Plan: {Servicio.name}</p>
-                    <p key={Servicio.id}>Precio: USD {Servicio.price}</p>
-                    <p key={Servicio.id}>Cuentas disponibles por plan: {Servicio.available}</p>
+            {Servicios.map((Servicio, i) =>
+                <div className="articulo" key={Servicio.id}>
+                    <Link to={Servicio.route}><h1 className="logoservicio">{Servicio.logo}</h1></Link>
+                    <p>Plan: {Servicio.name}</p>
+                    <p>Precio: USD {Servicio.price}</p>
+                    <p>Cuentas disponibles por plan: {Servicio.available}</p>
                     <div className="btndetalles">
-                    <Link key={Servicio.id} to={Servicio.route}><p>MAS DETALLES</p></Link>
+                    <Link to={Servicio.route}><p>MAS DETALLES</p></Link>
                     </div>
                 </div>
             )}

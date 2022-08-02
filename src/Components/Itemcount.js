@@ -23,8 +23,8 @@ const Itemcount = ({ initial, stock, onAdd }) => {
     }
 
     return (
-        <div class="counter">
-            <div class="cuentas">
+        <div className="counter">
+            <div className="cuentas">
                 <h1>Cuentas disponibles: {stock}</h1>
             </div>
             <div class="btn">
