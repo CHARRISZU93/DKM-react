@@ -3,6 +3,8 @@ import { MdAddShoppingCart } from "react-icons/md"
 import '../Components/Navbar.css'
 import { contexto } from '../Context/CartContext'
 import { useContext } from "react";
+import { Link } from "react-router-dom"
+
 
 const Cartwidget = () => {
 
@@ -10,8 +12,8 @@ const Cartwidget = () => {
 
     return (
         <>
-            <a href="cart"><MdAddShoppingCart id="Cartwidget"  /></a>
-            <p>{getQtyServicios}</p>
+            <Link to="cart"><MdAddShoppingCart id="Cartwidget"  /></Link>
+            {getQtyServicios()}
         </>
     )
 }

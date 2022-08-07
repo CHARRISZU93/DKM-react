@@ -27,9 +27,9 @@ const ItemDetail = () => {
 
     const { addProduct } = useContext(contexto)
 
-    const onAdd = (Service, Counter) => {
+    const onAdd = (Counter) => {
         SetPagar(true);
-        addProduct(Service, Counter)
+        addProduct(Servicio, Counter)
     }
 
     useEffect(() => {

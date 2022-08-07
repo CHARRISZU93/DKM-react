@@ -5,30 +5,21 @@ const { Provider } = contexto
 
 const CustomProvider = ({children}) => {
 
-    const [Service, SetService] = useState([]);
+    const [Service, SetService] = useState({});
+    const [Count, SetCount] = useState(0);
 
     const getQtyServicios = () => {
-        let qty = 0;
-        Service.forEach(Servicio => qty += Servicio.qty)
-        return qty;
+        return Count;
     }
 
     const addProduct = (Servicie, Counter) => {
-        console.log(Servicie)
-        if(isInCart(Servicie.id)){
-            const Busqueda = Servicie.find(Servicio => Servicio.id === Servicie.id)
-            const Index = Servicie.indexOf(Busqueda)
-            const newCart = [...Servicie]
-            newCart[Index].qty += Servicie.qty;
-            SetService(newCart)
-        } else {
-            SetService([...Service, {...Servicie, Counter}])
-        };
-        getQtyServicios();
+        SetService(Servicie)
+        SetCount(Counter)
     }
 
-    const deleteProduct = (id) => {
-        SetService(Service.filter(Servicie => Servicie.id !== id))
+    const deleteProduct = () => {
+        SetService({})
+        SetCount(0)
     };
 
     const isInCart = (id) => {
@@ -37,11 +28,12 @@ const CustomProvider = ({children}) => {
 
     const clear = () => {
         SetService([])
+        SetCount(0)
 
     }
      
     return(
-        <Provider value={{getQtyServicios, addProduct, deleteProduct, isInCart, clear}}>
+        <Provider value={{Service, getQtyServicios, addProduct, deleteProduct, isInCart, clear}}>
             {children}
         </Provider>
     )
