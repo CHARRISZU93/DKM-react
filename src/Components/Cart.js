@@ -62,9 +62,10 @@ const Cart = () => {
         const VentasCollection = collection(db, 'VENTAS')
 
         await addDoc(VentasCollection, {
+            Fecha: serverTimestamp(),
             Comprador: DatosComprador,
             Items: Service,
-            Fecha: serverTimestamp(),
+            Total: getQtyServicios(),
         })
             .then((result) => {
                 console.log(result)
