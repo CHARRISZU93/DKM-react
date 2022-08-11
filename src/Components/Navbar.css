@@ -4,15 +4,12 @@
 }
 
 @font-face {
-    font-family: FUENTE1;
-    src: url(../Media/LeagueGothic-Regular.otf);
-}
-
+    font-family: 'Font1';
+    src: url(../Media/LeagueGothic-Regular.otf); }
+  
 @font-face {
-    font-family: FUENTE2;
-    font-style: normal;
-    src: url(../Media/RobotoCondensed-Light.ttf);
-}
+    font-family: 'Font2';
+    src: url(../Media/RobotoCondensed-Light.ttf); }
 
 a:link,
 a:visited,
@@ -24,7 +21,7 @@ a:active {
 nav ul {
     font-size: 37px;
     color: black;
-    font-family: FUENTE1;
+    font-family: 'Font1';
     border-image: round;
     position: relative;
     justify-content: space-evenly;

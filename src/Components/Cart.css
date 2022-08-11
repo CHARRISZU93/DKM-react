@@ -1,0 +1,85 @@
+@font-face {
+    font-family: 'Font1';
+    src: url(../Media/LeagueGothic-Regular.otf); }
+  
+@font-face {
+    font-family: 'Font2';
+    src: url(../Media/RobotoCondensed-Light.ttf); }
+
+.notificacion{
+    font-size: 70px;
+    color: black;
+    font-family: 'Font1';
+    border-image: round;
+    position: relative;
+    justify-content: space-evenly;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.campo{
+    font-size: 60px;
+    color: black;
+    font-family: 'Font1';
+    border-image: round;
+    position: relative;
+    justify-content: space-evenly;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.campodescrp {
+    font-size: 40px;
+    color: black;
+    font-family: 'Font2';
+    border-image: round;
+    position: relative;
+    justify-content: space-evenly;
+    margin-top: 20px;
+    display: flex;
+}
+
+.campodescripcion {
+    font-size: 19px;
+    color: black;
+    font-family: 'Font2';
+    display: flex;
+    position: relative;
+    justify-content: space-evenly;
+    padding: 60px;
+    text-align: justify;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: 20px;
+}
+
+button{
+    font-size: 40px;
+    color: black;
+    font-family: 'Font1';
+    border-image: round;
+    position: relative;
+    justify-content: space-evenly;
+    margin-top: 20px;
+    display: flex;
+    border: 0; 
+    padding: 10px;
+}
+
+.botones{
+    font-size: 40px;
+    justify-content: space-evenly;
+    display: flex;
+    border: 50px;
+    padding: 5px;
+}
+
+
+

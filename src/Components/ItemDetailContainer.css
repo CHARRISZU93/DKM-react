@@ -1,13 +1,10 @@
 @font-face {
-    font-family: FUENTE1;
-    src: url(../Media/LeagueGothic-Regular.otf);
-}
-
+    font-family: 'Font1';
+    src: url(../Media/LeagueGothic-Regular.otf); }
+  
 @font-face {
-    font-family: FUENTE2;
-    font-style: normal;
-    src: url(../Media/RobotoCondensed-Light.ttf);
-}
+    font-family: 'Font2';
+    src: url(../Media/RobotoCondensed-Light.ttf); }
 
 .campo{
     display: flex;
@@ -17,7 +14,7 @@
 .campodescrp {
     font-size: 50px;
     color: black;
-    font-family: FUENTE1;
+    font-family: 'Font1';
     border-image: round;
     position: relative;
     justify-content: space-evenly;
@@ -34,7 +31,7 @@
 .campodescripcion {
     font-size: 19px;
     color: black;
-    font-family: FUENTE2;
+    font-family: 'Font2';
     display: flex;
     position: relative;
     justify-content: space-evenly;

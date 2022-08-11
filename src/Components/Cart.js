@@ -3,6 +3,8 @@ import { contexto } from '../Context/CartContext'
 import { db } from './Firebase'
 import { doc, addDoc, collection, serverTimestamp, updateDoc } from "firebase/firestore"
 import { TextField } from "@mui/material";
+import '../Components/Cart.css'
+
 
 
 const Cart = () => {
@@ -41,18 +43,18 @@ const Cart = () => {
 
         return (
             <div>
-                <h1>Datos del Comprador</h1>,
+                <h1 className="campo">Datos del Comprador</h1>,
                 <form>
-                    <label>Nombre:</label>,
-                    <TextField id="nombre" onChange={Cambio} type="text" name="nombre" value={DatosComprador.nombre} />,
-                    <label>Apellido:</label>,
-                    <TextField id="apellido" onChange={Cambio} type="text" name="apellido" value={DatosComprador.apellido} />,
-                    <label>Direccion:</label>,
-                    <TextField id="direccion" onChange={Cambio} type="text" name="direccion" value={DatosComprador.direccion} />,
-                    <label>Telefono:</label>,
-                    <TextField id="telefono" onChange={Cambio} type="text" name="telefono" value={DatosComprador.telefono} />,
-                    <label>Email:</label>,
-                    <TextField id="email" onChange={Cambio} type="text" name="email" value={DatosComprador.email} />,
+                    <label>Nombre:</label>
+                    <TextField id="nombre" onChange={Cambio} type="text" name="nombre" value={DatosComprador.nombre} />
+                    <label>Apellido:</label>
+                    <TextField id="apellido" onChange={Cambio} type="text" name="apellido" value={DatosComprador.apellido} />
+                    <label>Direccion:</label>
+                    <TextField id="direccion" onChange={Cambio} type="text" name="direccion" value={DatosComprador.direccion} />
+                    <label>Telefono:</label>
+                    <TextField id="telefono" onChange={Cambio} type="text" name="telefono" value={DatosComprador.telefono} />
+                    <label>Email:</label>
+                    <TextField id="email" onChange={Cambio} type="text" name="email" value={DatosComprador.email} />
                 </form>
             </div>
         )
@@ -77,25 +79,30 @@ const Cart = () => {
     return (
         <>
             {!Service.id && !idVenta
-                ? <h1>No hay productos en el carrito</h1>
+                ? <h1 className="notificacion">No hay productos en el carrito</h1>
                 : (!idVenta
                     ?
                     <>
-                        <div className="campo">
-                            <h1 className="campologoservicio">{Service.logo}</h1>
-                            <p className="campodescrp">Plan {Service.name}</p>
-                            <p className="campodescrp">Precio Desde USD {Service.price}</p>
+                        <div>
+                            <h1 className="campo">Estas a pocos pasos de empezar con DKM</h1>
+                            <p className="campodescrp">Plan: {Service.name}</p>
+                            <p className="campodescrp">Plan de Pago: USD {Service.price}</p>
+                            <h1 className="campodescrp">Total Cuentas: {getQtyServicios()}</h1>
                         </div>
-                        <button onClick={() => clear()}>Vaciar carrito</button>
-                        <button onClick={() => deleteProduct(Service.id)}>Eliminar producto</button>
                         {Comprador()}
-                        <h1>Total: {getQtyServicios()}</h1>
+                        <div className="botones">
+                        <button onClick={() => clear()}>Vaciar carrito</button>
                         <button onClick={() => FinalizarCompra()}>Finalizar compra</button>
+                        <button onClick={() => deleteProduct(Service.id)}>Eliminar producto</button>
+                        </div>
                     </>
                     :
                     <>
-                        <h1>Compra finalizada</h1>
-                        <p>Su compra se ha realizado con exito, su numero de venta es: {idVenta}</p>
+                        <h1 className="campo">Compra finalizada</h1>
+                        <p className="campodescrp">Tu compra se ha realizado con exito...</p>
+                        <p> --- </p>
+                        <p className="campodescrp">Tu numero de venta es: {idVenta}</p>
+                        <p className="campodescrp">Te hemos enviado la información de tu cuenta a tu bandeja de entrada</p>
                     </>
                 )
             }

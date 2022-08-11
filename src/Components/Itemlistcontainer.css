@@ -4,12 +4,11 @@
 }
 
 @font-face {
-    font-family: FUENTE1;
+    font-family: 'Font1';
     src: url(../Media/LeagueGothic-Regular.otf); }
   
-  @font-face {
-    font-family: FUENTE2;
-    font-style: normal;
+@font-face {
+    font-family: 'Font2';
     src: url(../Media/RobotoCondensed-Light.ttf); }
 
 #lista{
@@ -19,28 +18,40 @@
 
 .articulo{
     color: black;
-    padding: 40px;
+    padding-left: 110px;
+    padding-right: 110px;
     position: relative;
     justify-content: space-evenly;
+    display:inline-block;
+    margin: auto 0;
+}
+
+.articuloimg{
+    color: black;
+    padding-left: 180px;
+    padding-right: 180px;
+    padding-bottom: 20px;
+    padding-top: 40px;
+    position: relative;
     display:inline-block;
     margin: auto 0
 }
 
 .btndetalles{
-    font-size: 20px;
-    font-family: FUENTE2;
+    font-size: 16px;
+    font-family: 'Font1';
     position: relative;
     justify-content: space-evenly;
     display: flex;
     border: 0;
-    padding: 10px;
+    padding: 20px;
     text-decoration: underline;
 }
 
 p {
-    font-size: 25px;
+    font-size: 18px;
     color: black;
-    font-family: FUENTE1;
+    font-family: 'Font2';
     border-image: round;
     position: relative;
     justify-content: space-evenly;
@@ -50,6 +61,6 @@ p {
 
 .logoservicio {
     color: #ffec38;
-    font-size: 80px;
+    font-size: 85px;
     text-align: center;
 }
